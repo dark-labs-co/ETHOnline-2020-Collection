@@ -1,4 +1,5 @@
 
+![COG-idea-logo-0](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/COG-idea-logo-0.png?raw=true)
 ## C O G
 # Crypto Open Games
 Play Together
@@ -19,3 +20,6 @@ Fork: [scaffold-eth](https://github.com/austintgriffith/scaffold-eth)
 + Etherium
 
 ## Ideation
+![COG-idea-00](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/COG-idea-00.png?raw=true)
+
+![COG-idea-01](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/COG-idea-01.png?raw=true)
