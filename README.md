@@ -1,5 +1,15 @@
 
-![COG-idea-logo-0](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/COG-idea-logo-00.png?raw=true)
+![DL-ETHOnline-2020-logo-](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/ETH-Online-2020-logo-DL.png?raw=true)
+
+Collection of crypto experiments for ETH Online Hackathon 2020
+
+
+# EXPERIMENT 1
+Random Objects
+
+
+
+# EXPERIMENT 2
 ## C O G
 # Crypto Open Games
 Play Together
