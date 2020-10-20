@@ -37,6 +37,14 @@ export default function PurchaseUi({ address, mainnetProvider, userProvider, loc
     let fetcher = fetchVal()
     console.log('fetchVal', fetcher);
 
+    async function getVal() {
+        try {
+            let getRand = methods.getRandomNumber(123)
+            console.log(getRand.call())
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
 
     return (
@@ -44,11 +52,9 @@ export default function PurchaseUi({ address, mainnetProvider, userProvider, loc
             <h3>Crypto address: {readContracts ? readContracts.YourContract.address : readContracts}</h3>
             <h3>My address: {address}</h3>
             This one of a kind object is generated using Chainlink VRF
-            <button onClick={() => {
-                /* look how you call setPurpose on your contract: */
-                tx(remixContract.methods.getRandomNumber(123))
-            }}>Get Random Number
-                </button>
+            <button onClick={() => getVal()} >
+                Purchase
+        </button>
 
             { purchaseInfo &&
                 <div className="purchase-open--wrapper">
@@ -128,12 +134,6 @@ export default function PurchaseUi({ address, mainnetProvider, userProvider, loc
                         value={shippingOption}
                         onChange={(e) => setShippingOption(e.target.value)}
                     />
-
-                    <button onClick={() => {
-                        /* look how you call setPurpose on your contract: */
-                        tx(writeContracts.RandomNumberConsumer.getRandomNumber(12345))
-                    }}>confirm
-                </button>
                 </div>
             }
         </div >
