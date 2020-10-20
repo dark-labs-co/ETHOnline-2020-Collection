@@ -1,31 +1,24 @@
 import React from 'react';
-import Web3 from 'web3'
 import logo from './logo.svg';
 import './App.css';
-import PurchaseUi from './components/purchaseUi/PurchaseUi'
-import { ContractABI } from './ContractABI'
 
 function App() {
-
-  const web3 = new Web3(new Web3.providers.HttpProvider("HTTP://127.0.0.1:7545"));
-  web3.eth.defaultAccount = web3.eth.accounts[0];
-
-  const remixContract = new web3.eth.Contract(
-    ContractABI,
-    "0x32e4051c4409eE9EdD854f56B166493A056402e2"
-  );
-  let RemixContract = remixContract
-  console.log("🔐 RemixContract", RemixContract)
-
-  let { methods } = remixContract
-  console.log("🔐 RemixContract", methods)
-
   return (
     <div className="App">
-      <PurchaseUi
-        remixContract={RemixContract}
-        methods={methods}
-      />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
