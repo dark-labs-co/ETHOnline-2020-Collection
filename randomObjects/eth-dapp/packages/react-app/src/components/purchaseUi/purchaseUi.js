@@ -26,27 +26,12 @@ export default function PurchaseUi({ address, mainnetProvider, userProvider, loc
     // const value = remixContract.methods.randomResult();
     // console.log('value', value);
 
-    async function fetchVal() {
-        try {
-            const value = await methods.randomResult().value.call();
-            console.log('value', value);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-    let fetcher = fetchVal()
-    console.log('fetchVal', fetcher);
-
-    function getVal() {
-        try {
-            let getRand = methods.getRandomNumber(1234)
-            console.log(getRand.call())
-        } catch (err) {
-            console.error(err);
-        }
+    async function getVal() {
+        const value = await methods.getRandomNumber(1222245).call()
+        console.log(value)
     }
 
-
+    // 90792108491894098355165641192836322243027329926467459687000418472098015569867
     return (
         <div className="purchaseUI--wrapper">
             <h3>Crypto address: {readContracts ? readContracts.YourContract.address : readContracts}</h3>
