@@ -1,0 +1,32 @@
+canvas {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.logo--wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
+.td-scene--item {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.logo-text--item {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  fill: #626890;
+  margin: auto;
+}
+
+.scene--wrapper{
+  height: 100vh;
+}
