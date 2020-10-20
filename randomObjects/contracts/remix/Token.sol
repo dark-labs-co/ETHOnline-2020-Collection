@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract MyToken is ERC20, ERC20Detailed, ERC20Mintable,ERC20Capped {
-    constructor () ERC20Detailed("unq", "MIN",180) ERC20Capped(1000);
+    constructor () ERC20Detailed("unqueObj", "UNQ",180) ERC20Capped(1000);
     addMinter(0xB8db097380315E85BcD327af435341AC5149A6c2)
 
     pause()
@@ -20,7 +20,7 @@ contract MyToken is ERC20, ERC20Detailed, ERC20Mintable,ERC20Capped {
 
     addPauser(0xB8db097380315E85BcD327af435341AC5149A6c2)
 
-    function foo(address buyer) external{
+    function transferTok(address buyer) external{
         IERC20().transfer(buyer,1);
     }
 }
