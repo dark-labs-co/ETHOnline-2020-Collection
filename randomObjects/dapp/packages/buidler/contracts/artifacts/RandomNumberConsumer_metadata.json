@@ -1,0 +1,192 @@
+{
+	"compiler": {
+		"version": "0.6.6+commit.6c089d02"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "userProvidedSeed",
+						"type": "uint256"
+					}
+				],
+				"name": "getRandomNumber",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "requestId",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "nonces",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "randomResult",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "requestId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "randomness",
+						"type": "uint256"
+					}
+				],
+				"name": "rawFulfillRandomness",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_keyHash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_seed",
+						"type": "uint256"
+					}
+				],
+				"name": "requestRandomness",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "requestId",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"requestRandomness(bytes32,uint256,uint256)": {
+					"details": "See \"SECURITY CONSIDERATIONS\" above for more information on _seed.The fulfillRandomness method receives the output, once it's providedby the Oracle, and verified by the vrfCoordinator.The _keyHash must already be registered with the VRFCoordinator, andthe _fee must exceed the fee specified during registration of the_keyHash.The returned requestId can be used to distinguish responses to *concurrent requests. It is passed as the first argument tofulfillRandomness.",
+					"params": {
+						"_fee": "The amount of LINK to send with the request",
+						"_keyHash": "ID of public key against which randomness is generated",
+						"_seed": "seed mixed into the input of the VRF"
+					},
+					"returns": {
+						"requestId": "unique ID for this request"
+					}
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {
+				"constructor": "Constructor inherits VRFConsumerBase      * Network: Kovan Chainlink VRF Coordinator address: 0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9 LINK token address:                0xa36085F69e2889c224210F603D836748e7dC0088 Key Hash: 0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4",
+				"getRandomNumber(uint256)": {
+					"notice": "Requests randomness from a user-provided seed"
+				},
+				"requestRandomness(bytes32,uint256,uint256)": {
+					"notice": "requestRandomness initiates a request for VRF output given _seed"
+				}
+			}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/crypto-obj-0/packages/buidler/contracts/RandomNumberConsumer.sol": "RandomNumberConsumer"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"https://raw.githubusercontent.com/smartcontractkit/chainlink/master/evm-contracts/src/v0.6/VRFConsumerBase.sol": {
+			"keccak256": "0xee1c006961b33c3b070d0903d36b44d702034b472f338bbb179fd847c756d90f",
+			"urls": [
+				"bzz-raw://4f0b5c82551ea1e1cbd80df39a58626620b8c4b9cc009087c254cdc69197bd3a",
+				"dweb:/ipfs/QmPLDRT7dK4R39iLh4U6qB3NzPavVPfAMenpS3jzbyB516"
+			]
+		},
+		"https://raw.githubusercontent.com/smartcontractkit/chainlink/master/evm-contracts/src/v0.6/VRFRequestIDBase.sol": {
+			"keccak256": "0x0b004386a2f5c662413598e3a2644bdc0ba8ec95c1bbb50a15f97e55c25e8bc1",
+			"urls": [
+				"bzz-raw://825b757416c08bdf36ebc9f477bcf1dff2979a37a04af8fa128a8b8da5195ed8",
+				"dweb:/ipfs/QmWhGF2rLEKfCKLvN83VL3Zh19YvvoWqVaTH7ZkyJrcLvS"
+			]
+		},
+		"https://raw.githubusercontent.com/smartcontractkit/chainlink/master/evm-contracts/src/v0.6/interfaces/LinkTokenInterface.sol": {
+			"keccak256": "0xdbf46b45a4c9f38ba71a0391aed0e7b108854b619f292d907ae537228868bda6",
+			"urls": [
+				"bzz-raw://3ae40466809630c4731e2e3a697d6885727c577aaf260766c8a2f534ad3f6ee8",
+				"dweb:/ipfs/QmTzpN5yP4Y5jvQ1ohfXFrce3sjzUiSChYJgZj9VvhVohG"
+			]
+		},
+		"https://raw.githubusercontent.com/smartcontractkit/chainlink/master/evm-contracts/src/v0.6/vendor/SafeMath.sol": {
+			"keccak256": "0x95dbe2dd5ab8682b99bc3d7d297b621d4237442da160f78d3323ee5c4a06ded3",
+			"urls": [
+				"bzz-raw://d753308ff4eb43fba6f9ede371a33f707c5818350770dcb078a7d78ac8251361",
+				"dweb:/ipfs/Qme64eYKWoTQiP3WhqGHoMqrENNZ9L8SdBLQ2hx5SmzUda"
+			]
+		},
+		"localhost/crypto-obj-0/packages/buidler/contracts/RandomNumberConsumer.sol": {
+			"keccak256": "0x6c13c91df9d56748a77b10a46f9866a8b04714ad4c9c882a74001f09b2bd0e8b",
+			"urls": [
+				"bzz-raw://3d043218187a5ec6b85b8f6425c4d1d5a5ee27df6f7b7ab9666a47c78f98669f",
+				"dweb:/ipfs/QmRSb4pUFwwfAnwKUAjUX2pFPG351ZrSjpXeyR1EkmGtd3"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,1 @@
+module.exports = ["IncramentContract","PurchaseContract","RandomNumber","RandomNumberConsumer","YourContract"];

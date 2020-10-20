@@ -1,0 +1,23 @@
+.purchaseUI--wrapper{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2vw;
+     top: 0;
+    top: left;
+    width: 100vw;
+    background:#ffffffd5;
+    text-align: center;
+}
+
+.purchase-open--wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2vw;
+}
+
+.purchase-open--input{
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px #fff;
+}
