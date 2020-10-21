@@ -26,8 +26,9 @@ function Loading() {
     );
 }
 
-export default function Scene3d({ remixContract, methods }) {
+export default function Scene3d({ RandNumContract, methods }) {
     const [random, setRandom] = useState(21815724101579525323423942336085941416496621156280683789015544938769814098632)
+    const [random0, setRandom0] = useState(79253003447599360338688543096899282606035833701842488320705609459867506032435)
 
     useEffect(() => {
         async function fetchVal() {
@@ -47,13 +48,16 @@ export default function Scene3d({ remixContract, methods }) {
                     <Suspense fallback={<Loading />}>
                         <Model
                             random={random}
+                            random0={random0}
                         />
                         <Room />
                     </Suspense>
                 </Canvas>
                 <PurchaseUi
-                    remixContract={remixContract}
-                    methods={methods} />
+                    RandNumContract={RandNumContract}
+                    methods={methods}
+                    random={random}
+                />
             </>
 
         </div>

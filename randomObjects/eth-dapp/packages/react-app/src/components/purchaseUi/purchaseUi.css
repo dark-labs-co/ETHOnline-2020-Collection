@@ -2,11 +2,11 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    padding: 0 2vw;
-     top: 0;
+    padding: 1vw 2vw;
+    top: 0;
     top: left;
     width: 100vw;
-    background:#ffffffd5;
+    background:#ffffff21;
     text-align: center;
 }
 
@@ -14,10 +14,28 @@
     display: flex;
     flex-direction: column;
     padding: 0 2vw;
+    width: 70vw;
+    max-width: 600px;
+    margin: auto ;
 }
 
 .purchase-open--input{
     background: transparent;
     border: none;
     border-bottom: solid 1px #fff;
+    margin: 1vh 2vw;
+}
+
+.purchase--button{
+    background: #ffffff21;
+    color: #fff;
+}
+
+.bottom-info--text{
+    position: fixed;
+    display: flex;
+    color: #ffffff7a;
+    flex-direction: column;
+    padding: 0 1vw;
+    bottom: 0;
 }

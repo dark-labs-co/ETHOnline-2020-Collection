@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract MyToken is ERC20, ERC20Detailed, ERC20Mintable,ERC20Capped {
     constructor () ERC20Detailed("unqueObj", "UNQ",180) ERC20Capped(1000);
-    addMinter(0xB8db097380315E85BcD327af435341AC5149A6c2)
+    addMinter(0xB8db097380315E85BcD327af435341AC5149A6c2);
 
     pause()
     unpause()

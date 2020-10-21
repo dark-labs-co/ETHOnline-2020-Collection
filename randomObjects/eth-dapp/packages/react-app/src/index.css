@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button{
+  border-radius: 0;
+  background: #c9ddca;
+  border: 1px solid #c9ddca;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.web3Button{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 2vw;
+  top: 10;
+  right: 0;
+  z-index: 100;
+  background:#cccbcb;
+}

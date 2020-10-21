@@ -4,14 +4,12 @@ import { Contract } from "@ethersproject/contracts";
 import { Web3Provider, getDefaultProvider } from "@ethersproject/providers";
 import { useQuery } from "@apollo/react-hooks";
 
-import { Body, Button, Header, Image, Link } from "./components";
 import { web3Modal, logoutOfWeb3Modal } from './utils/web3Modal'
-import logo from "./ethereumLogo.png";
 
 import { addresses, abis } from "@project/contracts";
 import GET_TRANSFERS from "./graphql/subgraph";
 
-import { ContractABI } from "./ContractABI"
+import { RandomContractABI } from "./ContractABI"
 import Scene3d from './components/scene3d/scene3d'
 
 async function readOnChainData() {
@@ -27,7 +25,8 @@ async function readOnChainData() {
 
 function WalletButton({ provider, loadWeb3Modal }) {
   return (
-    <Button
+    <button
+      className="web3Button"
       onClick={() => {
         if (!provider) {
           loadWeb3Modal();
@@ -37,16 +36,14 @@ function WalletButton({ provider, loadWeb3Modal }) {
       }}
     >
       {!provider ? "Connect Wallet" : "Disconnect Wallet"}
-    </Button>
+    </button>
   );
 }
 
 function App() {
   const { loading, error, data } = useQuery(GET_TRANSFERS);
   const [provider, setProvider] = useState();
-
-  const [rand, setRand] = useState()
-
+  const defaultProvider = getDefaultProvider();
   /* Open wallet selection modal. */
   const loadWeb3Modal = useCallback(async () => {
     const newProvider = await web3Modal.connect();
@@ -66,25 +63,34 @@ function App() {
     }
   }, [loading, error, data]);
 
+  React.useEffect(() => {
+    if (!loading && !error && provider && provider.provider && provider.provider) {
+      console.log('provider', provider.provider)
+    }
+  }, [loading, error, data, provider]);
+
   const web3 = new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/v3/c350cd4f692e4c588510ad46e77529f1"));
   web3.eth.defaultAccount = web3.eth.accounts[0];
+  var account = web3.eth.accounts[0];
+  console.log(account)
 
-  const remixContract = new web3.eth.Contract(
-    ContractABI,
-    "0x32e4051c4409eE9EdD854f56B166493A056402e2"
+  const randNumContract = new web3.eth.Contract(
+    RandomContractABI,
+    "0xdf9f023BaAd86B4a78385a81D1bDF7213e67571B"
   );
 
-  let RemixContract = remixContract
-  console.log("🔐 RemixContract", RemixContract)
+  let RandNumContract = randNumContract
+  console.log("🔐 RandNumContract", RandNumContract)
 
-  let { methods } = remixContract
-  console.log("🔐 RemixContract", methods)
+  let { methods } = randNumContract
+  console.log("🔐 RandNumContract", methods)
 
   return (
     <div>
-      <WalletButton provider={provider} loadWeb3Modal={loadWeb3Modal} />
+      <WalletButton provider={provider} ladoWeb3Modal={loadWeb3Modal} />
       <Scene3d
-        remixContract={RemixContract}
+        address={provider}
+        randNumContract={RandNumContract}
         methods={methods}
       />
     </div>

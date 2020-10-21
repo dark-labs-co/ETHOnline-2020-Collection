@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./purchaseUi.css"
+import Web3 from "web3"
+import { PurchaseContractABI } from "../../ContractABI"
 
-export default function PurchaseUi({ address, mainnetProvider, userProvider, localProvider, yourLocalBalance, price, tx, readContracts, writeContracts, remixContract, methods }) {
+export default function PurchaseUi({ address, randomNumberContractMethods, random }) {
     const [purchaseInfo, setPurchaseInfo] = useState(false)
     const [firstName, setFirstName] = useState("firstName")
     const [lastName, setLastName] = useState("lastName")
@@ -16,33 +18,42 @@ export default function PurchaseUi({ address, mainnetProvider, userProvider, loc
     const [shippingOption, setShippingOption] = useState("shippingOption")
 
     //📟 Listen for broadcast events
-    // const remixEvents = useEventListener(methods, "RandomNumberConsumer", "randomResult");
+    // const remixEvents = useEventListener(randomNumberContractMethods, "RandomNumberConsumer", "randomResult");
     // console.log("📟 SetPurpose events:", remixEvents)
 
-
-    // const purpose = useContractReader(remixContract, "methods", "randomResult")
-    // console.log("🤗 purpose:", purpose)
-
-    // const value = remixContract.methods.randomResult();
-    // console.log('value', value);
-
     async function getVal() {
-        const value = await methods.getRandomNumber(1222245).call()
+        const value = await randomNumberContractMethods.getRandomNumber(1222245).call()
         console.log(value)
     }
 
+    const web3 = new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/v3/c350cd4f692e4c588510ad46e77529f1"));
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+
+    const purchaseContract = new web3.eth.Contract(
+        PurchaseContractABI,
+        "0x0c6C5673C1fe045e62ebEA910CB89a3439FAeF0b"
+    );
+
+    let PurchaseContract = purchaseContract
+    console.log("🔐 PurchaseContract", PurchaseContract)
+
+    let { methods } = purchaseContract
+    console.log("🔐 PurchaseContract", methods)
     // 90792108491894098355165641192836322243027329926467459687000418472098015569867
+
+    async function makePurchase() {
+        const value = await methods.balanceOf("0x72d74B363b8397424dF500dc120F166E4c2a72c9").call()
+        console.log(value)
+    }
     return (
         <div className="purchaseUI--wrapper">
-            <h3>Crypto address: {readContracts ? readContracts.YourContract.address : readContracts}</h3>
-            <h3>My address: {address}</h3>
-            This one of a kind object is generated using Chainlink VRF
-            <button onClick={() => getVal()} >
-                Purchase
+            <button onClick={() => setPurchaseInfo(!purchaseInfo)} >
+                info
         </button>
 
             { purchaseInfo &&
                 <div className="purchase-open--wrapper">
+                    Purchase this object
                     <input
                         className="purchase-open--input"
                         type="text"
@@ -119,8 +130,14 @@ export default function PurchaseUi({ address, mainnetProvider, userProvider, loc
                         value={shippingOption}
                         onChange={(e) => setShippingOption(e.target.value)}
                     />
+                    <button className="purchase--button" onClick={() => makePurchase()}>
+                        Purchase
+                </button>
                 </div>
             }
+            <h3 className="bottom-info--text">
+                #{random}
+            </h3>
         </div >
     )
 }

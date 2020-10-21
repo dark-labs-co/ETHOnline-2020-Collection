@@ -8,15 +8,8 @@ export default function Room() {
     return (
 
         <group position={[0, 0, -3]} scale={[1, 1, 1]} rotation={[0, 180, 0]}>
-            {/* <mesh
-                        visible geometry={nodes.Floor.geometry}
-                    >
-                        <meshStandardMaterial
-                            attach="material"
-                            color="grey"
-                            roughness={0.72}
-                        />
-                    </mesh> */}
+
+            {/* Wall L */}
             <mesh
                 visible position={[-3, 0, -4]} scale={[1, 15, 15]} geometry={nodes.Wall0.geometry}
             >
@@ -26,6 +19,8 @@ export default function Room() {
                     roughness={0.72}
                 />
             </mesh>
+
+            {/* Wall R */}
             <mesh
                 visible position={[4, 0, 3]} scale={[15, 15, 1]} geometry={nodes.Wall1.geometry}
             >
@@ -35,6 +30,17 @@ export default function Room() {
                     roughness={0.72}
                 />
             </mesh>
+
+            {/* Floor */}
+            {/* <mesh
+                        visible geometry={nodes.Floor.geometry}
+                    >
+                        <meshStandardMaterial
+                            attach="material"
+                            color="grey"
+                            roughness={0.72}
+                        />
+                    </mesh> */}
         </group>
     )
 }    
