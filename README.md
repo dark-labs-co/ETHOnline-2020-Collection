@@ -1,7 +1,7 @@
 
-![DL-ETHOnline-2020-logo](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/ETH-Online-2020-logo-DL.png?raw=true)
+![DL-ETHOnline-2020-logo](https://github.com/dark-labs-co/crypto-open-games/blob/main/Ideation/pressed-nft.png?raw=true)
 
-Collection of crypto experiments for ETH Online Hackathon 2020
+ETH Online Hackathon 2020
 
 
 # EXPERIMENT 1
@@ -11,11 +11,12 @@ Random Objects
 
 
 ## Objectives
-
-- DAPP pipeline for custom 3d printed objects
-- Generate crypto random hashes
-- Pipeline for processing generated 3d models
-
+- Web3 pipeline for visualizing NFTs.
+- System for interpreting tokenIDs and prepare them as Unique rapidly manufacturable objects
+- Generate random numbers
+- DAPP asset visualization
+- Post process 3d models
+- 
 ## Technology
 
 ### Generate Random numbers using ChainlinkVRF
